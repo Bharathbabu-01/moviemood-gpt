@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moviemood-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moviemood-backend
+  template:
+    metadata:
+      labels:
+        app: moviemood-backend
+    spec:
+      containers:
+        - name: backend
+          image: moviemood-backend:latest
+          ports:
+            - containerPort: 5000
